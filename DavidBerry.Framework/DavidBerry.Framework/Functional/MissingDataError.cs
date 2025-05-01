@@ -17,7 +17,7 @@ namespace DavidBerry.Framework.Functional
     public class MissingDataError : Error
     {
 
-        public MissingDataError(String message) : base(message)
+        public MissingDataError(string message) : base(message)
         {
 
         }

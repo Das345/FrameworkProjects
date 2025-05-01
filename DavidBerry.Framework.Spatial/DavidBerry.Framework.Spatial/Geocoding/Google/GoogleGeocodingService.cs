@@ -1,12 +1,9 @@
-﻿using DavidBerry.Framework.Functional;
-using DavidBerry.Framework.Spatial.Geocoding;
+using DavidBerry.Framework.Functional;
 using Newtonsoft.Json;
 using RestSharp;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Text;
 
 namespace DavidBerry.Framework.Spatial.Geocoding.Google
 {
@@ -30,7 +27,7 @@ namespace DavidBerry.Framework.Spatial.Geocoding.Google
         private readonly IRestClient _restClient;
         private readonly string _apiKey;
 
-        private readonly static Dictionary<string, LocationType> LocationTypeMap = new Dictionary<string, LocationType>()
+        private readonly static Dictionary<string, LocationType> LOCATIONTYPEMAP = new Dictionary<string, LocationType>()
         {
             { "point_of_interest", LocationType.NONE },   // POI is attached to everything in Google, so basically throw it out
             { "street_address", LocationType.STREET_ADDRESS },
@@ -60,11 +57,11 @@ namespace DavidBerry.Framework.Spatial.Geocoding.Google
 
         public Result<List<GeocodingResult>> GeocodeAddress(string address)
         {
-            var request = new RestRequest("maps/api/geocode/json", Method.GET);
+            var request = new RestRequest("maps/api/geocode/json", Method.Get);
             request.AddParameter("key", _apiKey);
             request.AddParameter("query", address);
-
-            IRestResponse response = _restClient.Execute(request);
+                        
+            RestResponse response = _restClient.Execute(request);
             if (response.ResponseStatus == ResponseStatus.Completed && response.StatusCode == HttpStatusCode.OK)
             {
                 var googleResponse = JsonConvert.DeserializeObject<GoogleGeocodingResponse>(response.Content);
@@ -97,7 +94,7 @@ namespace DavidBerry.Framework.Spatial.Geocoding.Google
         internal static LocationType DecodeLocationType(GoogleGeocodingResponse.GeocodingResult result)
         {
             var locationType = result.ResultTypes
-                .Select(x => LocationTypeMap.ContainsKey(x) ? LocationTypeMap[x] : LocationType.NONE)
+                .Select(x => LOCATIONTYPEMAP.ContainsKey(x) ? LOCATIONTYPEMAP[x] : LocationType.NONE)
                 .Aggregate(LocationType.NONE, (acc, x) => acc | x);
 
             return locationType;

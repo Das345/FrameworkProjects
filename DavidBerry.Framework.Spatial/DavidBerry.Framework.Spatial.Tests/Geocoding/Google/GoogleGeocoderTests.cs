@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -20,7 +20,7 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void GoogleResponseObjectMapsvaluesCorrectlyUsingJsonAttributes()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GoogleHeadquarters.json");
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GoogleHeadquarters.json");
 
             var googleResponse = JsonConvert.DeserializeObject<GoogleGeocodingResponse>(json);
 
@@ -63,8 +63,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyFormattedLocationStringIsMappedToGeocodingResponseObject()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GoogleHeadquarters.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GoogleHeadquarters.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -82,8 +82,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyLocationLatitudeLongitudeMappedCorrectlyInReturnObject()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GoogleHeadquarters.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GoogleHeadquarters.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -105,8 +105,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyFullCallResponseWhenGoogleReturnsSingleAddress()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GoogleHeadquarters.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GoogleHeadquarters.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -131,8 +131,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyFailureResultReturnedWhenGoogleReturnsError()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.BillingDisabled.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.BillingDisabled.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -153,8 +153,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifySingleCitySearchDecodesCorrectly()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.City-BoiseId.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.City-BoiseId.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -187,8 +187,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyCitySearchWithMultipleResultsDecodesCorrectly()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.MultipleCity-Springfield.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.MultipleCity-Springfield.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -228,8 +228,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyUsZipCodeSearchDecodesCorrectly()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.UsZipCode-83702.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.UsZipCode-83702.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -262,8 +262,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyCorrectLocationTypesAttachedToGasStationResult()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GasStation-KwikTrip.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.GasStation-KwikTrip.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -289,8 +289,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyCorrectLocationTypesAttachedToMuseumResult()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.Museum-FieldMuseum.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.Museum-FieldMuseum.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
@@ -313,8 +313,8 @@ namespace DavidBerry.Framework.Spatial.Tests.Geocoding.Google
         [Fact]
         public void VerifyCorrectAirportLocationTypeAttachedToAirport()
         {
-            String json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.Airport-OHare.json");
-            Mock<IRestResponse> restResponse = new Mock<IRestResponse>();
+            string json = Assembly.GetExecutingAssembly().ReadEmbeddedResourceTextFile("Geocoding.Google.GoogleResponse.Airport-OHare.json");
+            Mock<RestResponse> restResponse = new Mock<RestResponse>();
             restResponse.Setup(r => r.ResponseStatus).Returns(ResponseStatus.Completed);
             restResponse.Setup(r => r.StatusCode).Returns(System.Net.HttpStatusCode.OK);
             restResponse.Setup(r => r.Content).Returns(json);
