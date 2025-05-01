@@ -1,8 +1,9 @@
 
 using System;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc.Versioning;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc.Abstractions;
+
 
 namespace DavidBerry.Framework.ApiUtil.Controllers
 {
