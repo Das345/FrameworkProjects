@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,10 +17,10 @@ namespace DavidBerry.Framework.Tests.Data
         public void VerifyUnitOfWorkCallsContextSaveChanges()
         {
             // Arrange
-            Mock<DbContext> mockContext = new Mock<DbContext>();
+            Mock<DbContext> mockContext = new();
             
             // Act
-            EfUnitOfWork<DbContext> uow = new EfUnitOfWork<DbContext>(mockContext.Object);
+            EfUnitOfWork<DbContext> uow = new(mockContext.Object);
             uow.SaveChanges();
 
             // Assert
@@ -32,12 +32,12 @@ namespace DavidBerry.Framework.Tests.Data
         public void VerifyDbUpdateConcurrencyException_TranslatedTo_DBConcurrencyException()
         {
             // Arrange
-            Mock<DbContext> mockContext = new Mock<DbContext>();
+            Mock<DbContext> mockContext = new();
             mockContext.Setup(ctx => ctx.SaveChanges())
                 .Throws<DbUpdateConcurrencyException>();
 
             // Act and Assert
-            EfUnitOfWork<DbContext> uow = new EfUnitOfWork<DbContext>(mockContext.Object);
+            EfUnitOfWork<DbContext> uow = new(mockContext.Object);
             var exception = Assert.Throws<DBConcurrencyException>(() => uow.SaveChanges());
             exception.InnerException.Should().BeOfType<DbUpdateConcurrencyException>();
         }

@@ -1,4 +1,4 @@
-﻿using DavidBerry.Framework.TimeAndDate;
+using DavidBerry.Framework.TimeAndDate;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace DavidBerry.Framework.Tests.TimeAndDate
         {
             // Arrange
             var targetDateTime = new DateTime(2019, 12, 1, 11, 30, 00);
-            UnitTestDateTimeProvider dateTimeProvider = new UnitTestDateTimeProvider(targetDateTime);
+            UnitTestDateTimeProvider dateTimeProvider = new(targetDateTime);
 
             // Act
             var result = dateTimeProvider.CurrentDateTime;
@@ -38,7 +38,7 @@ namespace DavidBerry.Framework.Tests.TimeAndDate
         {
             // Arrange
             var targetDateTime = new DateTime(2019, 12, 1, 22, 30, 00, DateTimeKind.Local);
-            UnitTestDateTimeProvider dateTimeProvider = new UnitTestDateTimeProvider(targetDateTime);
+            UnitTestDateTimeProvider dateTimeProvider = new(targetDateTime);
             DateTime expectedDateTime = targetDateTime.ToUniversalTime();
 
             // Act
@@ -62,7 +62,7 @@ namespace DavidBerry.Framework.Tests.TimeAndDate
         {
             // Arrange
             var targetDateTime = new DateTime(2019, 12, 1, 11, 30, 00);
-            UnitTestDateTimeProvider dateTimeProvider = new UnitTestDateTimeProvider(targetDateTime);
+            UnitTestDateTimeProvider dateTimeProvider = new(targetDateTime);
 
             // Act
             var result = dateTimeProvider.Today;

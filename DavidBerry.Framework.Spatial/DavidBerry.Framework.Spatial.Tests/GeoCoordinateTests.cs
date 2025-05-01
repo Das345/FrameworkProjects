@@ -20,15 +20,13 @@ namespace DavidBerry.Framework.Spatial.Tests
         [InlineData(-90, 0)]   // Test the limits - South Pole
         public void CanConstructValidPointWithDegrees(double latitude, double longitude)
         {
-            GeoCoordinate p = new GeoCoordinate(latitude, longitude);
+            GeoCoordinate p = new(latitude, longitude);
 
             p.Should().NotBeNull();
 
-            p.Latitude.Unit.Should().BeOfType<AngleUnit>();
             p.Latitude.Unit.Should().Be(AngleUnit.Degree);
             p.Latitude.Value.Should().Be(latitude);
 
-            p.Longitude.Unit.Should().BeOfType<AngleUnit>();
             p.Longitude.Unit.Should().Be(AngleUnit.Degree);
             p.Longitude.Value.Should().Be(longitude);
         }
@@ -43,10 +41,5 @@ namespace DavidBerry.Framework.Spatial.Tests
         {
             Assert.Throws<ArgumentException>(() => new GeoCoordinate(latitude, longitude));
         }
-
-
-
-
-
     }
 }

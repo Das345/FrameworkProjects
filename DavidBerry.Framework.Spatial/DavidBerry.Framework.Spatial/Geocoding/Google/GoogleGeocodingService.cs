@@ -27,7 +27,7 @@ namespace DavidBerry.Framework.Spatial.Geocoding.Google
         private readonly IRestClient _restClient;
         private readonly string _apiKey;
 
-        private readonly static Dictionary<string, LocationType> LOCATIONTYPEMAP = new Dictionary<string, LocationType>()
+        private readonly static Dictionary<string, LocationType> LOCATIONTYPEMAP = new()
         {
             { "point_of_interest", LocationType.NONE },   // POI is attached to everything in Google, so basically throw it out
             { "street_address", LocationType.STREET_ADDRESS },

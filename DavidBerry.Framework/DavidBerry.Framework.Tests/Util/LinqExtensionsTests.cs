@@ -44,10 +44,10 @@ namespace DavidBerry.Framework.Tests.Util
             // Arrange
             var cars = new List<Car>()
             {
-                new Car() { Make = "Ford", Model="Escape", Color = "Silver"},
-                new Car() { Make = "Mazda", Model="CX5", Color = "Red"},
-                new Car() { Make = "Chevrolet", Model="Corvette", Color = "Yellow"},
-                new Car() { Make = "Toyota", Model="Camry", Color = "Green"}
+                new() { Make = "Ford", Model="Escape", Color = "Silver"},
+                new() { Make = "Mazda", Model="CX5", Color = "Red"},
+                new() { Make = "Chevrolet", Model="Corvette", Color = "Yellow"},
+                new() { Make = "Toyota", Model="Camry", Color = "Green"}
             };
             var colors = new List<string>() { "Red", "Blue", "Green", "White" };
 
@@ -70,10 +70,10 @@ namespace DavidBerry.Framework.Tests.Util
             // Arrange
             var cars = new List<Car>()
             {
-                new Car() { Make = "Ford", Model="Escape", Color = "Silver"},
-                new Car() { Make = "Mazda", Model="CX5", Color = "Red"},
-                new Car() { Make = "Chevrolet", Model="Corvette", Color = "Yellow"},
-                new Car() { Make = "Toyota", Model="Camry", Color = "Green"}
+                new() { Make = "Ford", Model="Escape", Color = "Silver"},
+                new() { Make = "Mazda", Model="CX5", Color = "Red"},
+                new() { Make = "Chevrolet", Model="Corvette", Color = "Yellow"},
+                new() { Make = "Toyota", Model="Camry", Color = "Green"}
             };
             var colors = new List<string>() { "Red", "Blue", "Green", "White" };
 
@@ -95,10 +95,10 @@ namespace DavidBerry.Framework.Tests.Util
             // Arrange
             var cars = new List<Car>()
             {
-                new Car() { Make = "Ford", Model="Escape", Color = "Silver"},
-                new Car() { Make = "Mazda", Model="CX5", Color = "Red"},
-                new Car() { Make = "Chevrolet", Model="Corvette", Color = "Yellow"},
-                new Car() { Make = "Toyota", Model="Camry", Color = "Green"}
+                new() { Make = "Ford", Model="Escape", Color = "Silver"},
+                new() { Make = "Mazda", Model="CX5", Color = "Red"},
+                new() { Make = "Chevrolet", Model="Corvette", Color = "Yellow"},
+                new() { Make = "Toyota", Model="Camry", Color = "Green"}
             };
             var colors = new List<string>() { "Red", "Blue", "Green", "White" };
 
@@ -122,10 +122,10 @@ namespace DavidBerry.Framework.Tests.Util
             // Arrange
             var cars = new List<Car>()
             {
-                new Car() { Make = "Ford", Model="Escape", Color = "Silver"},
-                new Car() { Make = "Mazda", Model="CX5", Color = "Red"},
-                new Car() { Make = "Chevrolet", Model="Corvette", Color = "Yellow"},
-                new Car() { Make = "Toyota", Model="Camry", Color = "Green"}
+                new() { Make = "Ford", Model="Escape", Color = "Silver"},
+                new() { Make = "Mazda", Model="CX5", Color = "Red"},
+                new() { Make = "Chevrolet", Model="Corvette", Color = "Yellow"},
+                new() { Make = "Toyota", Model="Camry", Color = "Green"}
             };
             var colors = new List<string>() { "Red", "Blue", "Green", "White" };
 

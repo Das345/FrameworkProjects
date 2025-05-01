@@ -7,7 +7,7 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RestSharp" Version="112.1.0" />
-    <PackageReference Include="UnitsNet" Version="4.42.0" />
+    <PackageReference Include="UnitsNet" Version="5.74.0" />
   </ItemGroup>
 
   <ItemGroup>

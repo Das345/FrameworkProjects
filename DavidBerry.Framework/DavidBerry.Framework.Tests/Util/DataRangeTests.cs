@@ -1,4 +1,4 @@
-﻿using DavidBerry.Framework.Util;
+using DavidBerry.Framework.Util;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace DavidBerry.Framework.Tests.Util
         [InlineData(-10, 10)]
         public void Int32_ConstructorAcceptsValidArguments(int minimum, int maximum)
         {
-            DataRange<int> range = new DataRange<int>(minimum, maximum);
+            DataRange<int> range = new(minimum, maximum);
 
             range.Minimum.Should().Be(minimum);
             range.Maximum.Should().Be(maximum);
@@ -38,7 +38,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsValue_ShouldReturnTrue_ForMinimumValueInRange()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
+            DataRange<int> range = new(0, 100);
 
             var result = range.ContainsValue(0);
 
@@ -48,7 +48,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsValue_ShouldReturnTrue_ForMaximumValueInRange()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
+            DataRange<int> range = new(0, 100);
 
             var result = range.ContainsValue(100);
 
@@ -58,7 +58,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsValue_ShouldReturnTrue_ForValueInRange()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
+            DataRange<int> range = new(0, 100);
 
             var result = range.ContainsValue(45);
 
@@ -68,7 +68,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsValue_ShouldReturnFalse_ForValueLowerThanRange()
         {
-            DataRange<int> range = new DataRange<int>(25, 100);
+            DataRange<int> range = new(25, 100);
 
             var result = range.ContainsValue(24);
 
@@ -79,7 +79,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsValue_ShouldReturnFalse_ForValueGreaterThanRange()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
+            DataRange<int> range = new(0, 100);
 
             var result = range.ContainsValue(101);
 
@@ -92,8 +92,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnTrue_ForRangeWithSameMinAndMax()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
-            DataRange<int> other = new DataRange<int>(0, 100);
+            DataRange<int> range = new(0, 100);
+            DataRange<int> other = new(0, 100);
 
             var result = range.ContainsRange(other);
 
@@ -103,8 +103,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnTrue_ForRangeWithSameMinAndLowerMax()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
-            DataRange<int> other = new DataRange<int>(0, 50);
+            DataRange<int> range = new(0, 100);
+            DataRange<int> other = new(0, 50);
 
             var result = range.ContainsRange(other);
 
@@ -114,8 +114,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnTrue_ForRangeWithGreaterMinAndSameMax()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
-            DataRange<int> other = new DataRange<int>(25, 100);
+            DataRange<int> range = new(0, 100);
+            DataRange<int> other = new(25, 100);
 
             var result = range.ContainsRange(other);
 
@@ -126,8 +126,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnTrue_ForRangeFullyContained()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
-            DataRange<int> other = new DataRange<int>(25, 75);
+            DataRange<int> range = new(0, 100);
+            DataRange<int> other = new(25, 75);
 
             var result = range.ContainsRange(other);
 
@@ -137,8 +137,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnFalse_ForRangeWithLowerMinAndGreaterMax()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(5, 25);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(5, 25);
 
             var result = range.ContainsRange(other);
 
@@ -149,8 +149,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnFalse_ForLowerOverlappingRange()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(5, 15);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(5, 15);
 
             var result = range.ContainsRange(other);
 
@@ -161,8 +161,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnFalse_ForHigherOverlappingRange()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(15, 25);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(15, 25);
 
             var result = range.ContainsRange(other);
 
@@ -174,8 +174,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnFalse_ForRangeWithSameMinGreaterMax()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(10, 25);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(10, 25);
 
             var result = range.ContainsRange(other);
 
@@ -186,8 +186,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ContainsRange_ShouldReturnFalse_ForRangeWithLowerMinSameMax()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(5, 20);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(5, 20);
 
             var result = range.ContainsRange(other);
 
@@ -209,8 +209,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnTrue_ForRangeWithSameMinAndMax()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
-            DataRange<int> other = new DataRange<int>(0, 100);
+            DataRange<int> range = new(0, 100);
+            DataRange<int> other = new(0, 100);
 
             var result = range.IsInsideRange(other);
 
@@ -220,8 +220,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnTrue_ForRangeWithSameMinAndLowerMax()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
-            DataRange<int> other = new DataRange<int>(0, 50);
+            DataRange<int> range = new(0, 100);
+            DataRange<int> other = new(0, 50);
 
             var result = range.IsInsideRange(other);
 
@@ -231,8 +231,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnTrue_ForRangeWithGreaterMinAndSameMax()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
-            DataRange<int> other = new DataRange<int>(25, 100);
+            DataRange<int> range = new(0, 100);
+            DataRange<int> other = new(25, 100);
 
             var result = range.IsInsideRange(other);
 
@@ -243,8 +243,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnTrue_ForRangeFullyContained()
         {
-            DataRange<int> range = new DataRange<int>(0, 100);
-            DataRange<int> other = new DataRange<int>(25, 75);
+            DataRange<int> range = new(0, 100);
+            DataRange<int> other = new(25, 75);
 
             var result = range.IsInsideRange(other);
 
@@ -254,8 +254,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnFalse_ForRangeWithLowerMinAndGreaterMax()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(5, 25);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(5, 25);
 
             var result = range.IsInsideRange(other);
 
@@ -266,8 +266,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnFalse_ForLowerOverlappingRange()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(5, 15);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(5, 15);
 
             var result = range.IsInsideRange(other);
 
@@ -278,8 +278,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnFalse_ForHigherOverlappingRange()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(15, 25);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(15, 25);
 
             var result = range.IsInsideRange(other);
 
@@ -291,8 +291,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnFalse_ForRangeWithSameMinGreaterMax()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(10, 25);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(10, 25);
 
             var result = range.IsInsideRange(other);
 
@@ -303,8 +303,8 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_IsInsideRange_ShouldReturnFalse_ForRangeWithLowerMinSameMax()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
-            DataRange<int> other = new DataRange<int>(5, 20);
+            DataRange<int> range = new(10, 20);
+            DataRange<int> other = new(5, 20);
 
             var result = range.IsInsideRange(other);
 
@@ -314,7 +314,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void Int32_ToString_ReturnsProperlyFormattedString()
         {
-            DataRange<int> range = new DataRange<int>(10, 20);
+            DataRange<int> range = new(10, 20);
 
             var result = range.ToString();
 

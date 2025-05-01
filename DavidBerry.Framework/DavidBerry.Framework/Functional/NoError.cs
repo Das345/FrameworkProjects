@@ -10,7 +10,7 @@ namespace DavidBerry.Framework.Functional
 
 
 
-        public static readonly NoError NO_ERROR = new NoError();
+        public static readonly NoError NO_ERROR = new();
 
 
     }

@@ -11,7 +11,7 @@ namespace DavidBerry.Framework.Util
         {
             var resourceName = $"{assembly.GetName().Name}.{filename}";
 
-            using (StreamReader reader = new StreamReader(assembly.GetManifestResourceStream(resourceName)))
+            using (StreamReader reader = new(assembly.GetManifestResourceStream(resourceName)))
             {
                 string contents = reader.ReadToEnd();
                 return contents;

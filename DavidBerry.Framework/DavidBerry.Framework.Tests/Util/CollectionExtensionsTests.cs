@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DavidBerry.Framework.Util;
@@ -22,7 +22,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void TestEmptyListReturnsTrueFor_IsNullOrEmpty()
         {
-            List<string> states = new List<string>();
+            List<string> states = new();
 
             var empty = states.IsNullOrEmpty();
 
@@ -32,7 +32,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void TestListWithElementsReturnsFalseFor_IsNullOrEmpty()
         {
-            List<string> states = new List<string>() { "California", "New York", "Virginia", "Washington", "Wisconsin" };
+            List<string> states = new() { "California", "New York", "Virginia", "Washington", "Wisconsin" };
 
             var empty = states.IsNullOrEmpty();
 
@@ -53,7 +53,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void TestEmptyDictionaryReturnsTrueFor_IsNullOrEmpty()
         {
-            Dictionary<string, string> states = new Dictionary<string, string>();
+            Dictionary<string, string> states = new();
 
             var empty = states.IsNullOrEmpty();
 
@@ -64,7 +64,7 @@ namespace DavidBerry.Framework.Tests.Util
         [Fact]
         public void TestDictionaryWithElementsReturnsFalseFor_IsNullOrEmpty()
         {
-            Dictionary<string, string> states = new Dictionary<string, string>()
+            Dictionary<string, string> states = new()
             {
                 { "WI", "Wisconsin" },
                 { "IL", "Illinois" },

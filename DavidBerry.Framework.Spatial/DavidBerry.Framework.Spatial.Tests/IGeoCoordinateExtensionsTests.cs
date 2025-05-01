@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnitsNet;
@@ -19,8 +19,8 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void CheckDistanceCalculationCorrect(double originLatitude, double originLongitude,
             double destinationLatitude, double destinationLongitude, double expectedDistance)
         {
-            GeoCoordinate origin = new GeoCoordinate(originLatitude, originLongitude);
-            GeoCoordinate destination = new GeoCoordinate(destinationLatitude, destinationLongitude);
+            GeoCoordinate origin = new(originLatitude, originLongitude);
+            GeoCoordinate destination = new(destinationLatitude, destinationLongitude);
 
             var distanceInMeters = origin.HaversineDistance(destination);
 
@@ -31,15 +31,15 @@ namespace DavidBerry.Framework.Spatial.Tests
 
         [Fact]
         public void CheckDefaultDistanceUnitsIsMeters()
-        {            
+        {
             // Arrange
-            GeoCoordinate origin = new GeoCoordinate(41.866738, -87.616977);
-            GeoCoordinate destination = new GeoCoordinate(40.689311, -74.044503);
+            GeoCoordinate origin = new(41.866738, -87.616977);
+            GeoCoordinate destination = new(40.689311, -74.044503);
 
             // Act
             var distance = origin.HaversineDistance(destination);
 
-            distance.Unit.Should().BeOfType<LengthUnit>();
+            // Assert
             distance.Unit.Should().Be(LengthUnit.Meter);
         }
 
@@ -48,8 +48,8 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void CheckDistanceUnitsPassedInIsUsedInResult()
         {
             // Arrange
-            GeoCoordinate origin = new GeoCoordinate(41.890442, 12.492263);        // The Colosseum in Rome
-            GeoCoordinate destination = new GeoCoordinate(48.858473, 2.294495);    // Eiffel Tower
+            GeoCoordinate origin = new(41.890442, 12.492263);        // The Colosseum in Rome
+            GeoCoordinate destination = new(48.858473, 2.294495);    // Eiffel Tower
 
             // Act
             var distance = origin.HaversineDistance(destination, LengthUnit.Mile);
@@ -67,12 +67,11 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void CheckInitialBearingCalculations(double originLatitude, double originLongitude,
             double destinationLatitude, double destinationLongitude, double expectedBearing)
         {
-            GeoCoordinate origin = new GeoCoordinate(originLatitude, originLongitude);
-            GeoCoordinate destination = new GeoCoordinate(destinationLatitude, destinationLongitude);
+            GeoCoordinate origin = new(originLatitude, originLongitude);
+            GeoCoordinate destination = new(destinationLatitude, destinationLongitude);
 
             var bearing = origin.InitialBearing(destination);
-
-            bearing.Unit.Should().BeOfType<AngleUnit>();
+                        
             bearing.Unit.Should().Be(AngleUnit.Degree);
             bearing.Value.Should().BeApproximately(expectedBearing, 0.005);
         }

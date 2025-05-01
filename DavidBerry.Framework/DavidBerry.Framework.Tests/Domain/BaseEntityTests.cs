@@ -14,7 +14,7 @@ namespace DavidBerry.Framework.Tests.Domain
         public void TestSetObjectModifiedLeavesNewObjectInNewState()
         {
             // Arrange
-            BaseEntity entity = new BaseEntity(ObjectState.NEW);
+            BaseEntity entity = new(ObjectState.NEW);
 
             // Act
             entity.SetObjectModified();
@@ -27,7 +27,7 @@ namespace DavidBerry.Framework.Tests.Domain
         public void TestSetObjectModifiedChangesStateForUnchangedObject()
         {
             // Arrange
-            BaseEntity entity = new BaseEntity(ObjectState.UNCHANGED);
+            BaseEntity entity = new(ObjectState.UNCHANGED);
 
             // Act
             entity.SetObjectModified();
@@ -40,7 +40,7 @@ namespace DavidBerry.Framework.Tests.Domain
         public void SetObjectDeleted_SetsObjectStateToDeleted()
         {
             // Arrange
-            BaseEntity entity = new BaseEntity(ObjectState.UNCHANGED);
+            BaseEntity entity = new(ObjectState.UNCHANGED);
 
             // Act
             entity.SetObjectDeleted();

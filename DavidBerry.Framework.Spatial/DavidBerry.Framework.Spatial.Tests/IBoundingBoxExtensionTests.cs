@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +20,7 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void ValidateNortheastExtensionMethod(double pointOneLatitude, double pointOneLongitude, 
             double pointTwoLatitude, double pointTwoLongitude, double expectedLatitude, double expectedLongitude)
         {
-            BoundingBox box = new BoundingBox(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
+            BoundingBox box = new(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
 
             var northeastPoint = box.Northeast();
 
@@ -38,7 +38,7 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void ValidateNorthwestExtensionMethod(double pointOneLatitude, double pointOneLongitude,
             double pointTwoLatitude, double pointTwoLongitude, double expectedLatitude, double expectedLongitude)
         {
-            BoundingBox box = new BoundingBox(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
+            BoundingBox box = new(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
 
             var northwestPoint = box.Northwest();
 
@@ -56,7 +56,7 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void ValidateSouthwestExtensionMethod(double pointOneLatitude, double pointOneLongitude,
             double pointTwoLatitude, double pointTwoLongitude, double expectedLatitude, double expectedLongitude)
         {
-            BoundingBox box = new BoundingBox(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
+            BoundingBox box = new(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
 
             var southwestPoint = box.Southwest();
 
@@ -75,7 +75,7 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void ValidateSoutheastExtensionMethod(double pointOneLatitude, double pointOneLongitude,
             double pointTwoLatitude, double pointTwoLongitude, double expectedLatitude, double expectedLongitude)
         {
-            BoundingBox box = new BoundingBox(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
+            BoundingBox box = new(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
 
             var southeastPoint = box.Southeast();
 
@@ -93,7 +93,7 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void ContainsKeyReturnsTrueForPointInBoundingBox(double pointOneLatitude, double pointOneLongitude,
             double pointTwoLatitude, double pointTwoLongitude, double testPointLatitude, double testPointLongitude)
         {
-            BoundingBox box = new BoundingBox(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
+            BoundingBox box = new(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
 
             var contains = box.ContainsPoint(testPointLatitude, testPointLongitude);
 
@@ -107,7 +107,7 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void ContainsKeyReturnsFalseForPointOutsideBoundingBox(double pointOneLatitude, double pointOneLongitude,
             double pointTwoLatitude, double pointTwoLongitude, double testPointLatitude, double testPointLongitude)
         {
-            BoundingBox box = new BoundingBox(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
+            BoundingBox box = new(pointOneLatitude, pointOneLongitude, pointTwoLatitude, pointTwoLongitude);
 
             var contains = box.ContainsPoint(testPointLatitude, testPointLongitude);
 

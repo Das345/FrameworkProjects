@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+using FluentAssertions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,7 +15,7 @@ namespace DavidBerry.Framework.Spatial.Tests
         public void ConsturctorTakesValidPoints(double topLeftLatitude, double topLeftLongitude,
             double bottomRightLatitude, double bottomRightLongitude)
         {
-            BoundingBox box = new BoundingBox(topLeftLatitude, topLeftLongitude,
+            BoundingBox box = new(topLeftLatitude, topLeftLongitude,
                 bottomRightLatitude, bottomRightLongitude);
 
             box.PointOne.Latitude.Value.Should().Be(topLeftLatitude);

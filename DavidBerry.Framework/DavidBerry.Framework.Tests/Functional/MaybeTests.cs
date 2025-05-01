@@ -1,4 +1,4 @@
-﻿using DavidBerry.Framework.Functional;
+using DavidBerry.Framework.Functional;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace DavidBerry.Framework.Tests.Functional
         [Fact]
         public void CanConstructMaybeObjectWithValueIsObject()
         {
-            Customer customer = new Customer() { Id = 1, FirstName = "John", LastName = "Smith" };
+            Customer customer = new() { Id = 1, FirstName = "John", LastName = "Smith" };
 
             var value = Maybe.Create(customer);
 
@@ -31,7 +31,7 @@ namespace DavidBerry.Framework.Tests.Functional
         [Fact]
         public void HasValueIsTrueForMaybeObjectWithValue()
         {
-            Customer customer = new Customer() { Id = 1, FirstName = "John", LastName = "Smith" };
+            Customer customer = new() { Id = 1, FirstName = "John", LastName = "Smith" };
 
             var maybe = Maybe.Create(customer);
 
@@ -50,7 +50,7 @@ namespace DavidBerry.Framework.Tests.Functional
         [Fact]
         public void ValuePropertyContainsTheValueObject()
         {
-            Customer customer = new Customer() { Id = 1, FirstName = "John", LastName = "Smith" };
+            Customer customer = new() { Id = 1, FirstName = "John", LastName = "Smith" };
 
             var maybe = Maybe.Create(customer);
 
@@ -62,7 +62,7 @@ namespace DavidBerry.Framework.Tests.Functional
         [Fact]
         public void WhenMaybeObjectContainsValueHasValueFunctionCalledInBind()
         {
-            Customer customer = new Customer() { Id = 1, FirstName = "John", LastName = "Smith" };
+            Customer customer = new() { Id = 1, FirstName = "John", LastName = "Smith" };
 
             var maybe = Maybe.Create(customer);
 

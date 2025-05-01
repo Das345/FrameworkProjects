@@ -1,4 +1,4 @@
-﻿using DavidBerry.Framework.TimeAndDate;
+using DavidBerry.Framework.TimeAndDate;
 using FluentAssertions;
 using System;
 using System.Collections.Generic;
@@ -14,14 +14,14 @@ namespace DavidBerry.Framework.Tests.TimeAndDate
         public void CurrentDateTime_ReturnsCurrentDateTime()
         {
             // Arrange
-            StandardDateTimeProvider dateTimeProvider = new StandardDateTimeProvider();
+            StandardDateTimeProvider dateTimeProvider = new();
             DateTime controlTime = DateTime.Now;
 
             // Act
             var result = dateTimeProvider.CurrentDateTime;
-            
+
             // Assert
-            result.Should().BeCloseTo(controlTime, 100);
+            result.Should().BeCloseTo(controlTime, TimeSpan.FromMilliseconds(100));
             result.Kind.Should().Be(DateTimeKind.Local);
         }
 
@@ -29,14 +29,14 @@ namespace DavidBerry.Framework.Tests.TimeAndDate
         public void CurrentUtcDateTime_ReturnsCurrentUtcDateTime()
         {
             // Arrange
-            StandardDateTimeProvider dateTimeProvider = new StandardDateTimeProvider();
+            StandardDateTimeProvider dateTimeProvider = new();
             DateTime controlTime = DateTime.UtcNow;
 
             // Act
             var result = dateTimeProvider.CurrentUtcDateTime;
 
             // Assert
-            result.Should().BeCloseTo(controlTime, 100);
+            result.Should().BeCloseTo(controlTime, TimeSpan.FromMilliseconds(100));
             result.Kind.Should().Be(DateTimeKind.Utc);
         }
 
@@ -45,7 +45,7 @@ namespace DavidBerry.Framework.Tests.TimeAndDate
         public void Today_ReturnsToday()
         {
             // Arrange
-            StandardDateTimeProvider dateTimeProvider = new StandardDateTimeProvider();
+            StandardDateTimeProvider dateTimeProvider = new();
             DateTime controlTime = DateTime.Today;
 
             // Act

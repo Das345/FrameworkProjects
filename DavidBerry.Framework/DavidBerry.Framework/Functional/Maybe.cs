@@ -37,7 +37,7 @@ namespace DavidBerry.Framework.Functional
 
 
 
-        public static Maybe<T> None() => new Maybe<T>();
+        public static Maybe<T> None() => new();
 
         public U Eval<U>(Func<T, U> hasValue, Func<U> noValue)
         {
