@@ -1,6 +1,3 @@
-using System;
-
-
 namespace DavidBerry.Framework.Functional
 {
     public class Error

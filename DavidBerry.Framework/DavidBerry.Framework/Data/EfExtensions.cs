@@ -1,9 +1,6 @@
-﻿using DavidBerry.Framework.Domain;
+using DavidBerry.Framework.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DavidBerry.Framework.Data
 {

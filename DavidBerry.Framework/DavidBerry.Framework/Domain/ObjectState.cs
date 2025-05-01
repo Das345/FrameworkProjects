@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace DavidBerry.Framework.Domain
 {
     /// <summary>
